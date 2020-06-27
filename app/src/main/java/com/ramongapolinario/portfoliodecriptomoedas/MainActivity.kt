@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ramongapolinario.portfoliodecriptomoedas.fragments.AddFragment
-import com.ramongapolinario.portfoliodecriptomoedas.fragments.HistoryFragment
+import com.ramongapolinario.portfoliodecriptomoedas.fragments.RegisterFragment
 import com.ramongapolinario.portfoliodecriptomoedas.fragments.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.history -> {
-                replaceFragment(HistoryFragment())
+                replaceFragment(RegisterFragment())
                 return@OnNavigationItemSelectedListener true
             }
 

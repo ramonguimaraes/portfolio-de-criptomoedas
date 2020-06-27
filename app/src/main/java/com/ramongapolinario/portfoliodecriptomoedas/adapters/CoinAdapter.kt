@@ -15,7 +15,6 @@ class CoinAdapter(val coins: ArrayList<Coin>?) : RecyclerView.Adapter<CoinAdapte
             itemView.txtCoinAmount.text = String.format("%.6f", coin.amount)
             itemView.txtAmountPrice.text = (coin.amount * coin.value).toString()
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -32,6 +31,5 @@ class CoinAdapter(val coins: ArrayList<Coin>?) : RecyclerView.Adapter<CoinAdapte
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.bind(coins!![position])
     }
-
 
 }

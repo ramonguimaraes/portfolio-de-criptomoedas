@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.HistoryFragment">
+    tools:context=".fragments.RegisterFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:titleTextColor="@color/colorText"
-            android:title="Historico de Compras"/>
+            android:title="Registros de Compras"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_history"
