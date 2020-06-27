@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Portfolio De Criptomoedas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="coins">
+        <item>BTC - Bitcoin</item>
+        <item>BCH - Bitcoin Cash</item>
+        <item>ETH - Etherium</item>
+        <item>LTC - Litecoin</item>
+        <item>XRP - Ripple</item>
+    </string-array>
+
+</resources>

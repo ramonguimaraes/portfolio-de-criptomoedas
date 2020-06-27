@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:padding="13dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/coinContainer"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/txtCoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textStyle="bold"
+            android:textSize="23sp"
+            android:text="BTC"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtCoinAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textStyle="bold"
+            android:textSize="23sp"
+            android:text="0.00111000"/>
+
+        <TextView
+            android:id="@+id/txtAmountPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R$ 20.000,00"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="10dp">
+
+        <TextView
+            android:id="@+id/txtCoinVariation"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:includeFontPadding="false"
+            android:text="2%"/>
+
+        <ImageView
+            android:id="@+id/icCoinVariantion"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:tint="#00ff00"
+            android:src="@drawable/ic_trending_up_24"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
+

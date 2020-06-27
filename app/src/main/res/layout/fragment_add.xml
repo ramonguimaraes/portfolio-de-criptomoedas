@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.AddFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary"
+        android:paddingHorizontal="50dp">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Adicione seus ativos e gerencie seu portifólio."
+            android:textColor="@color/colorText"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <AutoCompleteTextView
+            android:id="@+id/ac_coin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/editText"
+            android:textColorHint="@color/editText"
+            android:textColor="@color/colorText"
+            android:hint="Criptomoeda"/>
+
+
+        <EditText
+            android:id="@+id/edtPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/editText"
+            android:textColorHint="@color/editText"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/colorText"
+            android:hint="Cotaçao"/>
+
+        <EditText
+            android:id="@+id/edtAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/editText"
+            android:textColorHint="@color/editText"
+            android:layout_marginBottom="50dp"
+            android:textColor="@color/colorText"
+            android:hint="Quantidade"/>
+
+        <Button
+            android:id="@+id/btnAddCoin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:text="ADICIONAR"/>
+
+    </LinearLayout>
+
+</FrameLayout>

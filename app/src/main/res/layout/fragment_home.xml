@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.HistoryFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:elevation="5dp"
+            android:background="@drawable/toolbar_shape">
+
+            <TextView
+                android:id="@+id/txtTotalLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/txtTotal"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/colorText"
+                android:text="Total"/>
+
+            <TextView
+                android:id="@+id/txtTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:layout_below="@id/txtTotalLabel"
+                android:textSize="30sp"
+                android:textColor="@color/colorText"
+                android:text="R$36.831,32"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp"
+                android:layout_below="@id/txtTotal">
+
+                <TextView
+                    android:id="@+id/txtProfit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:textColor="@color/colorText"
+                    android:text="+2.213,32"/>
+
+                <TextView
+                    android:id="@+id/txtTotalVariant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorText"
+                    android:textSize="14sp"
+                    android:text="2%"/>
+
+                <ImageView
+                    android:id="@+id/txtTotalTrendingIcon"
+                    android:layout_width="16dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_trending_up_24"
+                    android:tint="#00ff00" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_below="@id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_layout"/>
+
+    </RelativeLayout>
+
+</FrameLayout>
