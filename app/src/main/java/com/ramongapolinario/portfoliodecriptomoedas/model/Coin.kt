@@ -1,6 +1,13 @@
 package com.ramongapolinario.portfoliodecriptomoedas.model
 
+import android.content.ContentValues
+import android.content.Context
+import android.database.Cursor
+import com.ramongapolinario.portfoliodecriptomoedas.db.*
 import com.ramongapolinario.portfoliodecriptomoedas.requests.HttpRequester
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
 
 class Coin (
 
@@ -21,8 +28,4 @@ class Coin (
         return lastValue * this.amount
     }
 
-    fun lastValue(): Double? {
-        val httpReq = HttpRequester()
-        return httpReq.getLastValue(this.initials)
-    }
 }
