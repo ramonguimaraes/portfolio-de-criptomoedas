@@ -13,7 +13,8 @@ class CoinAdapter(val coins: ArrayList<Coin>?) : RecyclerView.Adapter<CoinAdapte
         fun bind(coin: Coin) {
             itemView.txtCoin.text = coin.initials
             itemView.txtCoinAmount.text = String.format("%.6f", coin.amount)
-            itemView.txtAmountPrice.text = (coin.amount * coin.value).toString()
+            itemView.txtAmountPrice.text = coin.calcAmountValue(90000.0).toString()
+            itemView.txtCoinVariation.text = String.format("%.2f", coin.calcVariation(90000.0)).plus("%")
         }
     }
 
