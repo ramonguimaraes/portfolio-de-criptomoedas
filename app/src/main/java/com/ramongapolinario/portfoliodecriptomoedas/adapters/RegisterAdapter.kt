@@ -42,8 +42,8 @@ class RegisterAdapter(val registers: ArrayList<Register>?) : RecyclerView.Adapte
 
     fun getCoin(id: Int): Coin {
 
-        val coinDao = ctx?.let { CoinDAO(it) }
-        val coins = coinDao!!.getById(id)
+        val coinDao = CoinDAO(ctx!!)
+        val coins = coinDao.getById(id)
         return coins[0]
     }
 

@@ -23,4 +23,21 @@ object JsonParser {
 
         return last
     }
+
+    fun readDaySumary(jsonObject: JSONObject): Double? {
+
+        var daySumary: Double? = null
+
+        try {
+            daySumary = jsonObject.getDouble("closing")
+            Log.e("Erro:", "$daySumary")
+        }catch (e: JSONException) {
+
+            Log.e("Erro:", "${e}")
+
+        }
+
+        return daySumary
+
+    }
 }

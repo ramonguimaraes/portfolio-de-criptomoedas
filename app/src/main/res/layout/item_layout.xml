@@ -43,6 +43,7 @@
             android:id="@+id/txtAmountPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
             android:text="R$ 20.000,00"/>
 
     </LinearLayout>
@@ -65,7 +66,6 @@
             android:id="@+id/icCoinVariantion"
             android:layout_width="19dp"
             android:layout_height="19dp"
-            android:tint="#00ff00"
             android:src="@drawable/ic_trending_up_24"/>
 
 

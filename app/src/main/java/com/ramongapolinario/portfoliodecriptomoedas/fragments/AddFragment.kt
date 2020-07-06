@@ -14,7 +14,12 @@ import com.ramongapolinario.portfoliodecriptomoedas.db.CoinDAO
 import com.ramongapolinario.portfoliodecriptomoedas.db.RegisterDAO
 import com.ramongapolinario.portfoliodecriptomoedas.model.Coin
 import com.ramongapolinario.portfoliodecriptomoedas.model.Register
+import com.ramongapolinario.portfoliodecriptomoedas.requests.HttpRequester
 import kotlinx.android.synthetic.main.fragment_add.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -31,7 +36,6 @@ class AddFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //auto-complete
         val coins = resources.getStringArray(R.array.coins)
         val arrayAdapter = ArrayAdapter(activity!!.applicationContext, android.R.layout.simple_list_item_1, coins)
 
@@ -55,28 +59,42 @@ class AddFragment : Fragment() {
             val coinAmount = edtAmount.text.toString().toDouble()
             val coinPurchasePrice = edtPrice.text.toString().toDouble()
 
-            val coin = Coin(null, coinName, coinInitials, coinAmount, coinPurchasePrice)
+            var lastValue = 0.0
 
+            if(coins.contains(coinName)) {
+                CoroutineScope(IO).launch {
+                    lastValue = getLastValue(coinInitials)!!
 
-            val id = coinDao.insert(coin)
-            val register = Register(null, id.toInt(), date, hour)
-            val r = registerDao.insert(register)
-            Log.e("R", r)
-
-            Toast.makeText(activity!!.applicationContext, "Data atual: $date", Toast.LENGTH_SHORT).show()
+                    CoroutineScope(Main).launch {
+                        val coin = Coin(null, coinName, coinInitials, coinAmount, coinPurchasePrice, lastValue) //
+                        val id = coinDao.insert(coin)
+                        if(id != -1L){
+                            Toast.makeText(context, "O ativo foi inserido ao seu portifolio", Toast.LENGTH_SHORT).show()
+                            val register = Register(null, id.toInt(), date, hour)
+                            registerDao.insert(register)
+                        }else{
+                            Toast.makeText(context, "Erro inesperado ao inserir o ativo", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            } else {
+                Toast.makeText(context, "A moeda que você inserio não é valida", Toast.LENGTH_SHORT).show()
+            }
         }
-
-
     }
 
+    fun getLastValue(coinIitials: String): Double? {
+        return HttpRequester.getLastValue(coinIitials)
+    }
 
     fun getTime(): String? {
-        val date = LocalDateTime.now()
 
+        val date = LocalDateTime.now()
         val formater = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
         val formatedTime = date.format(formater)
 
         return formatedTime
 
     }
+
 }

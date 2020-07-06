@@ -16,6 +16,7 @@ class CoinDAO(context: Context) {
         contentValues.put(COIN_INITIALS, coin.initials)
         contentValues.put(COIN_AMOUNT, coin.amount)
         contentValues.put(COIN_PRICE, coin.purchasePrice)
+        contentValues.put(COIN_ATUAL_PRICE, coin.lastValue)
 
         val resp_id = db.insert(TABLE_NAME, null, contentValues)
 
@@ -33,6 +34,7 @@ class CoinDAO(context: Context) {
         contentValues.put(COIN_NAME, coin.name)
         contentValues.put(COIN_AMOUNT, coin.amount)
         contentValues.put(COIN_PRICE, coin.purchasePrice)
+        contentValues.put(COIN_ATUAL_PRICE, coin.lastValue)
         db.update(TABLE_NAME, contentValues, "ID = ?", arrayOf(coin.id.toString()))
 
         db.close()
@@ -102,6 +104,7 @@ class CoinDAO(context: Context) {
         val initials = cursor.getString(cursor.getColumnIndex(COIN_INITIALS))
         val amount = cursor.getDouble(cursor.getColumnIndex(COIN_AMOUNT))
         val purchasePrice = cursor.getDouble(cursor.getColumnIndex(COIN_PRICE))
-        return Coin(id, name, initials, amount, purchasePrice)
+        val atualPrice = cursor.getDouble(cursor.getColumnIndex(COIN_ATUAL_PRICE))
+        return Coin(id, name, initials, amount, purchasePrice, atualPrice)
     }
 }
